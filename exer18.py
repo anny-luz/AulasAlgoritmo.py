@@ -1,58 +1,41 @@
-matriz = []
-numero = 1 
-# Preenchendo a matriz 
-print("Preencha a matriz 4x4:")
+# Criando a matriz 4x4 já com os valores de exemplo
+matriz = [
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9, 8, 7, 6],
+    [5, 4, 3, 2]
+]
+
+print("Escolha o que deseja exibir:")
+print("1 - Matriz inteira")
+print("2 - Diagonal principal")
+print("3 - Triângulo superior")
+print("4 - Triângulo inferior")
+
+op =  int(input("Opção: "))
+
+print()
+
+# Exibição
 for i in range(4):
-    linha = []
-    for j in range(4): 
-        linha.append(numero)
-    matriz.append(linha)
+    for j in range(4):
 
-    # Menu
-    while True: 
-        print("\nMenu")
-        print("1 - Mostrar matriz completa")
-        print("2 - Mostrar diagonal principal")
-        print("3 - Mostar triângulo superior")
-        print("4 - Mostrar triângulo inferior")
-        print("0 - Sair")
+        if op == 1: 
+            print(matriz[i][j],end="\t")
 
-        opcao = int(input("Escolha uma opção: "))
+        elif op == 2: #Diagonal principal
+            if i == j: 
+               print(f"\033[34m{matriz[i][j]}\033[0m", end="\t")
+            else: 
+                print(" ", end="\t")
 
-        if opcao == 1: 
-            print("\nMatriz Completa:")
-            for linha in matriz: 
-                print(linha)
+        elif op == 4: # Triângulo inferior
+            if i >= j: 
+                print(f"\033[31m{matriz[i][j]}\033[0m", end="\t")
+            else: 
+                print(" ", end="\t")
 
-        elif opcao == 2: 
-            print("\nDiagonal Principal:")
-            for i in range(4): 
-                print(matriz[i][i], end=" ")
-            print()
+print()
 
-        elif opcao == 3: 
-            print("\nTriângulo Superior:")
-            for i in range(4):
-                for j in range(4): 
-                    if j >= i: 
-                        print(matriz[i][j], end=" ")
-                    else: 
-                        print(" ", end= " ")
-                print()
-
-        elif opcao == 4:
-            print("\nTriângulo Inferior:")
-            for i in range(4): 
-                for j in range(4):
-                    if j <= i: 
-                        print(matriz[i][j], end=" ")
-                    else: 
-                        print(" ", end= " ")
-                print()
-
-        elif opcao == 0:
-            print("Encerrando...")
-            break
-
-        else: 
-            print("Opção inválida!")
+        
+ 
